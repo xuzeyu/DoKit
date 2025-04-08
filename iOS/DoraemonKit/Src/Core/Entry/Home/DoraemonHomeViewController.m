@@ -147,11 +147,11 @@ static NSString *DoraemonHomeCloseCellID = @"DoraemonHomeCloseCellID";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    DoraemonHomeCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:DoraemonHomeCellID forIndexPath:indexPath];
     NSInteger row = indexPath.row;
     NSInteger section = indexPath.section;
     
     if (section < _dataArray.count) {
+        DoraemonHomeCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:DoraemonHomeCellID forIndexPath:indexPath];
         NSDictionary *dict = _dataArray[section];
         NSArray *pluginArray = dict[@"pluginArray"];
         NSDictionary *item = pluginArray[row];
@@ -159,7 +159,7 @@ static NSString *DoraemonHomeCloseCellID = @"DoraemonHomeCloseCellID";
         [cell updateImage:item[@"image"]];
         return cell;
     } else {
-        DoraemonHomeCloseCell *closeCell = [collectionView dequeueReusableCellWithReuseIdentifier:DoraemonHomeCloseCellID forIndexPath: indexPath];
+        DoraemonHomeCloseCell *closeCell = [collectionView dequeueReusableCellWithReuseIdentifier:DoraemonHomeCloseCellID forIndexPath:indexPath];
         return closeCell;
     }
 }
