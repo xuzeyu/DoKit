@@ -14,7 +14,7 @@
 @property (nonatomic, strong) UIImageView *icon;
 @property (nonatomic, strong) UILabel *name;
 @property (nonatomic, strong) UIImageView *select;
-@property (nonatomic, strong) UIView *maskView;
+@property (nonatomic, strong) UIView *customMaskView;
 
 @end
 
@@ -36,7 +36,7 @@
         self.layer.borderColor = [UIColor doraemon_colorWithHexString:@"#EEEEEE"].CGColor;
         
         [self addSubview:self.centerView];
-        [self addSubview:self.maskView];
+        [self addSubview:self.customMaskView];
         [self addSubview:self.select];
         
         [self.centerView addSubview:self.icon];
@@ -48,7 +48,7 @@
     return self;
 }
 
-- (UIView *)centerView{
+- (UIView *)centerView {
     if (!_centerView) {
         _centerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.doraemon_width, 0)];
     }
@@ -81,7 +81,7 @@
     return _name;
 }
 
-- (UIImageView *)select{
+- (UIImageView *)select {
     if (!_select) {
         CGFloat size = kDoraemonSizeFrom750_Landscape(28);
         _select = [[UIImageView alloc] initWithFrame:CGRectMake(self.doraemon_width-kDoraemonSizeFrom750_Landscape(12)-size, kDoraemonSizeFrom750_Landscape(12), size, size)];
@@ -89,13 +89,13 @@
     return _select;
 }
 
-- (UIView *)maskView{
-    if (!_maskView) {
-        _maskView = [[UIView alloc] initWithFrame:self.bounds];
-        _maskView.backgroundColor = [UIColor whiteColor];
-        _maskView.alpha = 0.5;
+- (UIView *)customMaskView {
+    if (!_customMaskView) {
+        _customMaskView = [[UIView alloc] initWithFrame:self.bounds];
+        _customMaskView.backgroundColor = [UIColor whiteColor];
+        _customMaskView.alpha = 0.5;
     }
-    return _maskView;
+    return _customMaskView;
 }
 
 
@@ -106,14 +106,14 @@
         self.select.hidden = NO;
         if (select) {
             self.select.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_check_circle_fill"];
-            self.maskView.hidden = YES;
+            self.customMaskView.hidden = YES;
         }else{
             self.select.image = [UIImage doraemon_xcassetImageNamed:@"doraemon_check_circle"];
-            self.maskView.hidden = NO;
+            self.customMaskView.hidden = NO;
         }
     }else{
         self.select.hidden = YES;
-        self.maskView.hidden = YES;
+        self.customMaskView.hidden = YES;
     }
 }
 
