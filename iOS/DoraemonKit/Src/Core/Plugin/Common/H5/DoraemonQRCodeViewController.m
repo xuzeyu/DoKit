@@ -45,7 +45,11 @@
     scaner.showScanLine = YES;
     scaner.showBorderLine = YES;
     scaner.showCornerLine = YES;
-    scaner.scanRect = CGRectMake(scaner.doraemon_width/2-kDoraemonSizeFrom750(480)/2, kDoraemonSizeFrom750(195), kDoraemonSizeFrom750(480), kDoraemonSizeFrom750(480));
+    CGFloat width = kDoraemonSizeFrom750(480);
+    CGFloat height = kDoraemonSizeFrom750(480);
+    CGFloat x = scaner.doraemon_width/2-kDoraemonSizeFrom750(480)/2;
+    CGFloat y = (DoraemonScreenHeight - IPHONE_NAVIGATIONBAR_HEIGHT - height)/2.0;
+    scaner.scanRect = CGRectMake(x, y, width, height);
     [self.view addSubview:scaner];
     self.scanView = scaner;
     [scaner startScanning];
