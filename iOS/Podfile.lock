@@ -1,4 +1,7 @@
 PODS:
+  - CocoaLumberjack (3.7.4):
+    - CocoaLumberjack/Core (= 3.7.4)
+  - CocoaLumberjack/Core (3.7.4)
   - DoraemonKit/Core (3.1.3):
     - FMDB
     - GCDWebServer
@@ -7,9 +10,23 @@ PODS:
   - DoraemonKit/Foundation (3.1.3):
     - Mantle (~> 2.2)
     - SocketRocket (~> 0.6)
+  - DoraemonKit/WithDatabase (3.1.3):
+    - DoraemonKit/Core
+    - YYDebugDatabase
+  - DoraemonKit/WithGPS (3.1.3):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLoad (3.1.3):
+    - DoraemonKit/Core
+  - DoraemonKit/WithLogger (3.1.3):
+    - CocoaLumberjack
+    - DoraemonKit/Core
+  - DoraemonKit/WithMLeaksFinder (3.1.3):
+    - DoraemonKit/Core
+    - FBRetainCycleDetector
   - DoraemonKit/WithMultiControl (3.1.3):
     - DoraemonKit/Core
     - DoraemonKit/Foundation
+  - FBRetainCycleDetector (0.1.4)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -24,30 +41,44 @@ PODS:
     - Mantle/extobjc (= 2.2.0)
   - Mantle/extobjc (2.2.0)
   - SocketRocket (0.6.0)
+  - YYDebugDatabase (2.1.1):
+    - FMDB
+    - GCDWebServer
 
 DEPENDENCIES:
   - DoraemonKit/Core (from `..`)
   - DoraemonKit/Foundation (from `..`)
+  - DoraemonKit/WithDatabase (from `..`)
+  - DoraemonKit/WithGPS (from `..`)
+  - DoraemonKit/WithLoad (from `..`)
+  - DoraemonKit/WithLogger (from `..`)
+  - DoraemonKit/WithMLeaksFinder (from `..`)
   - DoraemonKit/WithMultiControl (from `..`)
 
 SPEC REPOS:
   https://cdn.cocoapods.org/:
+    - CocoaLumberjack
+    - FBRetainCycleDetector
     - FMDB
     - GCDWebServer
     - Mantle
     - SocketRocket
+    - YYDebugDatabase
 
 EXTERNAL SOURCES:
   DoraemonKit:
     :path: ".."
 
 SPEC CHECKSUMS:
+  CocoaLumberjack: 543c79c114dadc3b1aba95641d8738b06b05b646
   DoraemonKit: 7448814a80d9ca56bc8db9105c464b7ec2e62623
+  FBRetainCycleDetector: 46f8179bbb1c587deee3ea838a1a3ee02acf5015
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GCDWebServer: 2c156a56c8226e2d5c0c3f208a3621ccffbe3ce4
   Mantle: c5aa8794a29a022dfbbfc9799af95f477a69b62d
   SocketRocket: fccef3f9c5cedea1353a9ef6ada904fde10d6608
+  YYDebugDatabase: 2e815f2b5ba7ff49aa298ea265dec6a7aa4664ad
 
-PODFILE CHECKSUM: e7b9fe686dd84effe497e10534550a42591d2938
+PODFILE CHECKSUM: 7560386a6289eee4b00cc7a94d4a052c3e3470d0
 
 COCOAPODS: 1.15.2
